@@ -23,7 +23,7 @@ eval `ssh-agent -s`
 remote_command="set -e ; log() { echo '>> [remote]' \$@ ; } ; log 'Creating workspace directory...' ; mkdir -p \"\$HOME/$WORKSPACE\" ; log 'Unpacking workspace...' ; tar -C \"\$HOME/$WORKSPACE\" -xjv ; log 'Launching docker compose...' ; cd \"\$HOME/$WORKSPACE\" ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" up -d --remove-orphans --build"
 
 if $DOCKER_COMPOSE_DOWN ; then
-  remote_command="set -e ; log() { echo '>> [remote]' \$@ ; } ; log 'Creating workspace directory...' ; mkdir -p \"\$HOME/$WORKSPACE\" ; log 'Unpacking workspace...' ; tar -C \"\$HOME/$WORKSPACE\" -xjv ; cd \"\$HOME/$WORKSPACE\" ; log 'Docker compose down...' ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" down ; log 'Docker compose pulling...' ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull ; log 'Docker compose up...' ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" up -d --remove-orphans --build"
+  remote_command="set -e ; log() { echo '>> [remote]' \$@ ; } ; log 'Creating workspace directory...' ; mkdir -p \"\$HOME/$WORKSPACE\" ; log 'Unpacking workspace...' ; cd \"\$HOME/$WORKSPACE\" ; tar -xjv ; log 'Docker compose down...' ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" down ; log 'Docker compose pulling...' ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" pull ; log 'Docker compose up...' ; docker compose -f \"$DOCKER_COMPOSE_FILENAME\" up -d --remove-orphans --build"
 fi
 
 ssh-add <(echo "$SSH_PRIVATE_KEY")
