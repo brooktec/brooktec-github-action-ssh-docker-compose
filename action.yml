@@ -18,7 +18,7 @@ inputs:
     description: Remote user name.
     required: true
   workspace:
-    desciption: Remote workspace.
+    description: Remote workspace.
     default: 'workspace'
     required: false
   docker_compose_filename:
