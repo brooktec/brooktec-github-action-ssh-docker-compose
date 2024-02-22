@@ -13,13 +13,11 @@ unknown docker-images. It is entirely built from Dockerfile on top of
 
  * `ssh_private_key` - Private SSH key used for logging into remote system.
    Please, keep your key securely in github secrets.
- * `ssh_host` - Remote host name.
+ * `ssh_host` - Remote host name or IP.
  * `ssh_port` - Remote port for SSH connection. Default is 22.
  * `ssh_user` - Remote user which should have access to docker.
- * `docker_compose_prefix` - Project name passed to compose. Each docker
-   container will have this prefix in name.
+ * `worspace` - Remote workspace.
  * `docker_compose_filename` - Path to the docker compose file in the repository.
- * `use_stack` - Use docker stack instead of docker compose.
  * `docker_compose_down` - Execute docker compose-down.
 
 # Usage example
